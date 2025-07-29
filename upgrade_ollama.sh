@@ -100,6 +100,7 @@ fi
 # 如果文件不存在才开始下载
 if [ ! -f "$FILENAME" ]; then
     echo "⬇️ 正在下载版本 $LATEST_TAG ..."
+    URL="https://github.com/ollama/ollama/releases/download/$LATEST_TAG/$FILENAME"
     if command -v aria2c >/dev/null 2>&1; then
         echo "🚀 使用 aria2c 多线程下载..."
         aria2c -x 16 -s 16 -k 1M -o "$FILENAME" "$URL"
